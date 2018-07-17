@@ -12,17 +12,49 @@
       #map {
         height: 100%;
       }
+      
+      #link{
+        padding: 6px;
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        background-color: #294e2d;
+      }
+      
+      .trim{
+        padding: 8px;
+        margin: 8px;
+      }
+    
+      #head{
+        position: absolute;
+        z-index: 99;
+        width: 100%;
+        margin-right: 16px;
+        text-align: right;
+      }
     </style>
   </head>
-  <body>
-    <div id="map"></div>
+  <body onload="initHead()">
+    <div id="head"><div class="trim"><a id="link" href="#"></a></div></div>
+    <script>
+      var tabs = [
+        {name: 'isaacdozier.com', link: 'http://isaacdozier.com/'},
+      ]
+      function initHead() {
+        var link = document.getElementById('link')
+        link.innerHTML = tabs[0].name
+        link.href = tabs[0].link
+      }
+    </script>
+    <div id="map" ></div>
     <script>
       var map;
       function initMap() {
-        // Constructor creates a new map - only center and zoom are required.
+        // Constructor creates a new map
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 48.7135, lng: -121.1412},
-          zoom: 13
+          zoom: 9
         });
       }
     </script>
